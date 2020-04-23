@@ -1,0 +1,2 @@
+rootProject.name='PetHealthcare_AppService'
+include ':app'
