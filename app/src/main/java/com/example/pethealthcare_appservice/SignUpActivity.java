@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,21 +48,31 @@ public class SignUpActivity extends AppCompatActivity{
     private void signup(){
         String email=((EditText)findViewById(R.id.email_editText)).getText().toString();
         String password=((EditText)findViewById(R.id.password_editText)).getText().toString();
-        mAuth.createUserWithEmailAndPassword(email, password)
+        String passwordCheck=((EditText)findViewById(R.id.paswwordCheck_editText)).getText().toString();
+if(email.length()>0&&password.length()>0&&passwordCheck.length()>0){
+        if(password.equals(passwordCheck)){
+            mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            startToast("회원가입을 성공했습니다.");
+                             } else {
+                                     if(task.getException()!=null) {
+                                    startToast(task.getException().toString());
+                                }
+                            }
                         }
-
-                        // ...
-                    }
-                });
+                 });
+            }else{
+            startToast("비밀번호가 일치하지 않습니다.");
+        }
+    }else {
+        startToast("이메일 혹은 비밀번호를 입력해 주세요.");
+        }
+    }
+    private void startToast(String msg){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 }
