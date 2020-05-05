@@ -52,11 +52,5 @@
             android:layout_weight="0"
             android:text="회원가입" />
 
-        <Button
-            android:id="@+id/gotoLoginButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:text="로그인하러가기" />
     </LinearLayout>
 </LinearLayout>
