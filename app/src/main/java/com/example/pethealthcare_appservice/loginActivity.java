@@ -27,6 +27,7 @@ public class loginActivity extends AppCompatActivity{
 
         mAuth = FirebaseAuth.getInstance();
         findViewById(R.id.loginButton).setOnClickListener(onClickListener);
+        findViewById(R.id.gotoSignUpButton).setOnClickListener(onClickListener);
     }
     @Override
     public void onStart() {
@@ -39,12 +40,15 @@ public class loginActivity extends AppCompatActivity{
         public void onClick(View v){
             switch (v.getId()){
                 case R.id.loginButton:
-                    signUp();
+                    login();
+                    break;
+                case R.id.gotoSignUpButton:
+                    startSignUpActivity();
                     break;
             }
         }
     };
-    private void signUp(){
+    private void login(){
         String email=((EditText)findViewById(R.id.email_editText)).getText().toString();
         String password=((EditText)findViewById(R.id.password_editText)).getText().toString();
 
@@ -73,6 +77,10 @@ if(email.length()>0&&password.length()>0){
     }
     private void startMainActivity(){
         Intent intent=new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
+    private void startSignUpActivity(){
+        Intent intent=new Intent(this,SignUpActivity.class);
         startActivity(intent);
     }
 }

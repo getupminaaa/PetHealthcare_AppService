@@ -78,12 +78,12 @@ if(email.length()>0&&password.length()>0&&passwordCheck.length()>0){
         startToast("이메일 혹은 비밀번호를 입력해 주세요.");
         }
     }
-
-    private void startToast(String msg){
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-    }
     private void startLoginActivity(){
         Intent intent=new Intent(this,loginActivity.class);
         startActivity(intent);
     }
+    private void startToast(String msg){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
 }
