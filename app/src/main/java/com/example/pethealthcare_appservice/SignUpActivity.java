@@ -1,5 +1,6 @@
 package com.example.pethealthcare_appservice;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,7 +26,9 @@ public class SignUpActivity extends AppCompatActivity{
         setContentView(R.layout.activity_sign_up);
 // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+
         findViewById(R.id.signUpButton).setOnClickListener(onClickListener);
+        findViewById(R.id.gotoLoginButton).setOnClickListener(onClickListener);
     }
     @Override
     public void onStart() {
@@ -40,7 +43,9 @@ public class SignUpActivity extends AppCompatActivity{
             switch (v.getId()){
                 case R.id.signUpButton:
                     signup();
-                    Log.e("클릭","클릭");
+                    break;
+                case R.id.gotoLoginButton:
+                    startLoginActivity();
                     break;
             }
         }
@@ -49,6 +54,7 @@ public class SignUpActivity extends AppCompatActivity{
         String email=((EditText)findViewById(R.id.email_editText)).getText().toString();
         String password=((EditText)findViewById(R.id.password_editText)).getText().toString();
         String passwordCheck=((EditText)findViewById(R.id.paswwordCheck_editText)).getText().toString();
+
 if(email.length()>0&&password.length()>0&&passwordCheck.length()>0){
         if(password.equals(passwordCheck)){
             mAuth.createUserWithEmailAndPassword(email, password)
@@ -72,7 +78,12 @@ if(email.length()>0&&password.length()>0&&passwordCheck.length()>0){
         startToast("이메일 혹은 비밀번호를 입력해 주세요.");
         }
     }
+
     private void startToast(String msg){
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+    private void startLoginActivity(){
+        Intent intent=new Intent(this,loginActivity.class);
+        startActivity(intent);
     }
 }

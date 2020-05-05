@@ -26,6 +26,10 @@
                     android:host="google.com" />
             </intent-filter>
         </activity>
+            <activity android:name=".loginActivity">
+            </activity>
+            <activity android:name=".MainActivity">
+            </activity>
     </application>
 
 </manifest>
