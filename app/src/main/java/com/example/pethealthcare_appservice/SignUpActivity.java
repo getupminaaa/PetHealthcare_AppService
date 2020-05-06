@@ -27,14 +27,14 @@ public class SignUpActivity extends AppCompatActivity {
 // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        findViewById(R.id.signUpButton).setOnClickListener(onClickListener);
+        findViewById(R.id.gotoSetProfile).setOnClickListener(onClickListener);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.signUpButton:
+                case R.id.gotoSetProfile:
                     signUp();
                     break;
             }
@@ -55,7 +55,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     startToast("회원가입을 성공했습니다.");
-                                    startMyActivity(MainActivity.class);
+                                    startMyActivity(setProfileActivity.class);
                                     finish();
                                 } else {
                                     if (task.getException() != null) {

@@ -29,8 +29,8 @@
         </activity>
         <activity android:name=".passwordResetActivity"></activity>
         <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".setProfileActivity"></activity>
         <activity android:name=".MainActivity"></activity>
-
 
     </application>
 
