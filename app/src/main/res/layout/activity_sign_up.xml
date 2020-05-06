@@ -28,6 +28,12 @@
             android:ems="10"
             android:hint="이메일"
             android:inputType="textEmailAddress" />
+        <Button
+            android:id="@+id/checkEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="이메일 인증하기" />
 
         <EditText
             android:id="@+id/password_editText"
