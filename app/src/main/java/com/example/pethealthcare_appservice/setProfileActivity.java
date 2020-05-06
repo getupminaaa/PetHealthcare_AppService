@@ -1,68 +1,92 @@
 package com.example.pethealthcare_appservice;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class setProfileActivity extends AppCompatActivity {
+
+    private static final String TAG = "SetProfileActivity";
+
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_user_profile);
+
+        findViewById(R.id.setUserProfileButton).setOnClickListener(onClickListener);
     }
 
-//      if (FirebaseAuth
-//    }.getInstance().getCurrentUser() == null) {
-//            startMyActivity(loginActivity.class);
-//        }
-//
-//        findViewById(R.id.).setOnClickListener(onClickListener);
-// 정보업데이트  이메일 정보 등록
+
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.setUserProfileButton:
+                    if (user == null) {
+                        startMyActivity(SignUpActivity.class);
+                    } else {
+                        setProfile();
+                        break;
+                    }
+            }
+        }
+    };
+
 
     private void setProfile() {
-        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                .setDisplayName("Jane Q. User")
-                .build();
+        String name = ((EditText) findViewById(R.id.sUName)).getText().toString();
+        String phoneNumber = ((EditText) findViewById(R.id.sUPhoneNum)).getText().toString();
+        String address = ((EditText) findViewById(R.id.sUAddress)).getText().toString();
 
-        user.updateProfile(profileUpdates)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            startToast("프로필 등록 완료!");
-                        }
-                    }
-                });
+        if (name.length() > 0 && phoneNumber.length() == 11 && address.length() > 0) {
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+            UserInfo userInfo = new UserInfo(name, phoneNumber, address);
+
+            if (user != null) {
+
+                db.collection("users").document("getUid").set(userInfo)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                startToast("회원정보등록 성공");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                startToast("회원정보등록 실패");
+                                Log.w(TAG, "등록실패", e);
+                            }
+                        });
+            }
+
+
+        } else {
+            startToast("내용을 입력해주세요!");
+        }
+
     }
 
-    //    View.OnClickListener onClickListener = new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            switch (v.getId()) {
-//                case R.id.:
-//                    FirebaseAuth.getInstance().signOut();
-//                    startMyActivity(loginActivity.class);
-//                    finish();
-//                    break;
-//            }
-//        }
-//    };
-//
-//    private void startMyActivity(Class activity) {
-//        Intent intent = new Intent(this, activity);
-//        startActivity(intent);
-//    }
+    private void startMyActivity(Class activity) {
+        Intent intent = new Intent(this, activity);
+        startActivity(intent);
+    }
+
     private void startToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }

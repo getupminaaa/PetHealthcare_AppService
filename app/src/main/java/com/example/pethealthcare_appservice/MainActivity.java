@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
             startMyActivity(loginActivity.class);
         }
         findViewById(R.id.logoutButton).setOnClickListener(onClickListener);
+        findViewById(R.id.uUProfileButton).setOnClickListener(onClickListener);
     }
     @Override
     public void onBackPressed() {
@@ -33,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.logoutButton:
                     FirebaseAuth.getInstance().signOut();
                     startMyActivity(loginActivity.class);
+                    finish();
+                    break;
+
+                case R.id.uUProfileButton:
+                    startMyActivity(updateProfileActivity.class);
                     finish();
                     break;
             }

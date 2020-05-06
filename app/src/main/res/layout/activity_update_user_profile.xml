@@ -5,11 +5,11 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tSetProfile"
+        android:id="@+id/tUetProfile"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:gravity="center"
-        android:text="회원 정보 등록"
+        android:text="회원 정보 수정"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -20,7 +20,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/sUName"
+            android:id="@+id/uUName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -28,7 +28,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/sUPhoneNum"
+            android:id="@+id/uUPhoneNum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -36,7 +36,7 @@
             android:inputType="phone" />
 
         <EditText
-            android:id="@+id/sUAddress"
+            android:id="@+id/uUAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -48,6 +48,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="회원정보등록 완료" />
+            android:text="회원정보수정 완료" />
     </LinearLayout>
 </LinearLayout>

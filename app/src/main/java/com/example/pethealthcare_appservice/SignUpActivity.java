@@ -53,8 +53,7 @@ public class SignUpActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    startToast("회원가입을 성공했습니다.");
+                                    startToast("다음단계로 이동합니다.");
                                     startMyActivity(setProfileActivity.class);
                                     finish();
                                 } else {
