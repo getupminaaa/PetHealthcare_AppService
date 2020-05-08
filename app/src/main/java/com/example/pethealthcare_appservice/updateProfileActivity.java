@@ -29,6 +29,8 @@ public class updateProfileActivity extends AppCompatActivity {
     TextView tName;
     TextView tPhoneNumber;
     TextView tAddress;
+    TextView tEmailVerification;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +56,11 @@ public class updateProfileActivity extends AppCompatActivity {
                             tPhoneNumber.setText(phoneNumber);
                             tAddress.setText(address);
 
-//                            Log.d(TAG, "onComplete: " +documentSnapshot.get("name").toString());
                         }
                     })
                     .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                         @Override
-                        public void onComplete(@NonNull Task<DocumentSnapshot> task) { //성공시 출력
-//                            Log.d(TAG, "onComplete");
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         }
                     });
         }
@@ -78,8 +78,8 @@ public class updateProfileActivity extends AppCompatActivity {
                         updateProfile();
                         break;
                     }
-
-
+//                case  R.id.emailVerificationButton:
+//                    // emailVerification();
             }
         }
     };
@@ -108,6 +108,12 @@ public class updateProfileActivity extends AppCompatActivity {
                 });
 
     }
+
+//    private void emailVerification(){
+//        tEmailVerification = (TextView) findViewById(R.id.uUName);
+//
+//    }
+
 
     private void startMyActivity(Class activity) {
         Intent intent = new Intent(this, activity);

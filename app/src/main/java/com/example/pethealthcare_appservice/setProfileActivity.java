@@ -62,6 +62,7 @@ public class setProfileActivity extends AppCompatActivity {
                 db.collection("users").document(user.getUid()).set(usersInfo)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
+
                             public void onSuccess(Void aVoid) {
                                 startToast("회원정보등록 성공");
                                 startMyActivity(MainActivity.class);
