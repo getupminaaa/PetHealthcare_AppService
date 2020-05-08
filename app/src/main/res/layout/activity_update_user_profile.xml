@@ -44,10 +44,12 @@
             android:inputType="textPostalAddress" />
 
         <Button
-            android:id="@+id/setUserProfileButton"
+            android:id="@+id/uUserProfileButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:text="회원정보수정 완료" />
+
+
     </LinearLayout>
 </LinearLayout>

@@ -46,24 +46,26 @@ public class setProfileActivity extends AppCompatActivity {
         }
     };
 
-
     private void setProfile() {
         String name = ((EditText) findViewById(R.id.sUName)).getText().toString();
         String phoneNumber = ((EditText) findViewById(R.id.sUPhoneNum)).getText().toString();
         String address = ((EditText) findViewById(R.id.sUAddress)).getText().toString();
 
         if (name.length() > 0 && phoneNumber.length() == 11 && address.length() > 0) {
+
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            UserInfo userInfo = new UserInfo(name, phoneNumber, address);
+            UsersInfo usersInfo = new UsersInfo(name, phoneNumber, address);
 
             if (user != null) {
 
-                db.collection("users").document("getUid").set(userInfo)
+                db.collection("users").document(user.getUid()).set(usersInfo)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 startToast("회원정보등록 성공");
+                                startMyActivity(MainActivity.class);
+                                finish();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -84,6 +86,7 @@ public class setProfileActivity extends AppCompatActivity {
 
     private void startMyActivity(Class activity) {
         Intent intent = new Intent(this, activity);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 

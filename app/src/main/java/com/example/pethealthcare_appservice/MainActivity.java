@@ -1,10 +1,10 @@
 package com.example.pethealthcare_appservice;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
             startMyActivity(loginActivity.class);
         }
         findViewById(R.id.logoutButton).setOnClickListener(onClickListener);
-        findViewById(R.id.uUProfileButton).setOnClickListener(onClickListener);
+        findViewById(R.id.gUProfileButton).setOnClickListener(onClickListener);
     }
     @Override
     public void onBackPressed() {
@@ -37,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                     break;
 
-                case R.id.uUProfileButton:
+                case R.id.gUProfileButton:
                     startMyActivity(updateProfileActivity.class);
-                    finish();
+
                     break;
             }
         }
