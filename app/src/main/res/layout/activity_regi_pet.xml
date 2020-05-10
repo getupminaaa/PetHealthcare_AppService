@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout
+
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -37,7 +40,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toStartOf="@+id/space2"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/tPname"
         app:layout_constraintTop_toBottomOf="@+id/tRegiPet" />
 
@@ -45,8 +48,8 @@
         android:id="@+id/space2"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        tools:layout_editor_absoluteX="331dp"
-        tools:layout_editor_absoluteY="150dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tRegiPet" />
 
     <TextView
         android:id="@+id/tPSpecies"
@@ -62,8 +65,10 @@
         android:id="@+id/pSpecies"
         android:layout_width="250dp"
         android:layout_height="50dp"
+        android:entries="@array/pSpecies"
         app:layout_constraintStart_toEndOf="@+id/tPSpecies"
-        app:layout_constraintTop_toBottomOf="@+id/space6" />
+        app:layout_constraintTop_toBottomOf="@+id/space6"
+        />
 
     <Space
         android:id="@+id/space3"
@@ -73,13 +78,15 @@
         app:layout_constraintTop_toBottomOf="@+id/space6" />
 
     <Spinner
-        android:id="@+id/pSpecies2"
+        android:id="@+id/pBreed"
         android:layout_width="250dp"
         android:layout_height="50dp"
+        android:entries="@array/pBreed"
         app:layout_constraintEnd_toStartOf="@+id/space5"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/tPBreed"
-        app:layout_constraintTop_toBottomOf="@+id/space7" />
+        app:layout_constraintTop_toBottomOf="@+id/space7"
+        />
 
     <TextView
         android:id="@+id/tPBreed"
@@ -130,7 +137,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pSpecies2" />
+        app:layout_constraintTop_toBottomOf="@+id/pBreed" />
 
     <Space
         android:id="@+id/space9"
@@ -140,9 +147,10 @@
         app:layout_constraintTop_toBottomOf="@+id/space8" />
 
     <Spinner
-        android:id="@+id/sGender"
+        android:id="@+id/pGender"
         android:layout_width="125dp"
         android:layout_height="50dp"
+        android:entries="@array/pGender"
         app:layout_constraintStart_toEndOf="@+id/tGender"
         app:layout_constraintTop_toBottomOf="@+id/space8" />
 
@@ -154,7 +162,7 @@
         android:text="중성화"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/space9"
-        app:layout_constraintStart_toEndOf="@+id/sGender"
+        app:layout_constraintStart_toEndOf="@+id/pGender"
         app:layout_constraintTop_toBottomOf="@+id/space8" />
 
     <Button
@@ -172,7 +180,7 @@
         android:layout_width="410dp"
         android:layout_height="120dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sGender" />
+        app:layout_constraintTop_toBottomOf="@+id/pGender" />
 
     <Space
         android:layout_width="408dp"
