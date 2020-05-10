@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class setProfileActivity extends AppCompatActivity {
+public class SetProfileActivity extends AppCompatActivity {
 
     private static final String TAG = "SetProfileActivity";
 

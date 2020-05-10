@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
         }
         findViewById(R.id.logoutButton).setOnClickListener(onClickListener);
         findViewById(R.id.gUProfileButton).setOnClickListener(onClickListener);
+        findViewById(R.id.gotoPetRegiButton).setOnClickListener(onClickListener);
+
     }
     @Override
     public void onBackPressed() {
@@ -39,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
                 case R.id.gUProfileButton:
                     startMyActivity(updateProfileActivity.class);
+
+                    break;
+
+                case R.id.gotoPetRegiButton:
+                    startMyActivity(RegiPetActivity.class);
 
                     break;
             }

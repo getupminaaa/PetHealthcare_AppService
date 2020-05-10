@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tRegiPet"
+        android:layout_width="410dp"
+        android:layout_height="150dp"
+        android:gravity="center"
+        android:text="반려 동물 등록"
+        android:textIsSelectable="false"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tPname"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="이름"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tRegiPet" />
+
+    <EditText
+        android:id="@+id/pName"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/space2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tPname"
+        app:layout_constraintTop_toBottomOf="@+id/tRegiPet" />
+
+    <Space
+        android:id="@+id/space2"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        tools:layout_editor_absoluteX="331dp"
+        tools:layout_editor_absoluteY="150dp" />
+
+    <TextView
+        android:id="@+id/tPSpecies"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="종"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space6" />
+
+    <Spinner
+        android:id="@+id/pSpecies"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toEndOf="@+id/tPSpecies"
+        app:layout_constraintTop_toBottomOf="@+id/space6" />
+
+    <Space
+        android:id="@+id/space3"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space6" />
+
+    <Spinner
+        android:id="@+id/pSpecies2"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/space5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tPBreed"
+        app:layout_constraintTop_toBottomOf="@+id/space7" />
+
+    <TextView
+        android:id="@+id/tPBreed"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="품종"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space7" />
+
+    <Space
+        android:id="@+id/space5"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space7" />
+
+    <Space
+        android:id="@+id/space6"
+        android:layout_width="410dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pName" />
+
+    <Space
+        android:id="@+id/space7"
+        android:layout_width="410dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pSpecies" />
+
+    <TextView
+        android:id="@+id/tGender"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="성별"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space8" />
+
+    <Space
+        android:id="@+id/space8"
+        android:layout_width="410dp"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pSpecies2" />
+
+    <Space
+        android:id="@+id/space9"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space8" />
+
+    <Spinner
+        android:id="@+id/sGender"
+        android:layout_width="125dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toEndOf="@+id/tGender"
+        app:layout_constraintTop_toBottomOf="@+id/space8" />
+
+    <CheckBox
+        android:id="@+id/cGender"
+        android:layout_width="125dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="중성화"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/space9"
+        app:layout_constraintStart_toEndOf="@+id/sGender"
+        app:layout_constraintTop_toBottomOf="@+id/space8" />
+
+    <Button
+        android:id="@+id/pRegiButton"
+        android:layout_width="410dp"
+        android:layout_height="50dp"
+        android:text="등록 완료"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space10" />
+
+    <Space
+        android:id="@+id/space10"
+        android:layout_width="410dp"
+        android:layout_height="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sGender" />
+
+    <Space
+        android:layout_width="408dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pRegiButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
