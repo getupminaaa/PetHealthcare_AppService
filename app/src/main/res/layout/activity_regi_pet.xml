@@ -154,13 +154,12 @@
         app:layout_constraintStart_toEndOf="@+id/tGender"
         app:layout_constraintTop_toBottomOf="@+id/space8" />
 
-    <CheckBox
-        android:id="@+id/cGender"
+    <Spinner
+        android:id="@+id/pNeutral"
         android:layout_width="125dp"
         android:layout_height="50dp"
-        android:gravity="center"
-        android:text="중성화"
-        android:textSize="18sp"
+        android:entries="@array/pNeutral"
+        app:layout_constraintBottom_toTopOf="@+id/space10"
         app:layout_constraintEnd_toStartOf="@+id/space9"
         app:layout_constraintStart_toEndOf="@+id/pGender"
         app:layout_constraintTop_toBottomOf="@+id/space8" />

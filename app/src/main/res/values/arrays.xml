@@ -8,25 +8,22 @@
 
         <item>도마뱀</item>
 
-        <item>뱀</item>
-
         <item>햄스터</item>
 
-        <item>고슴도치</item>
-
         <item>조류</item>
-
-        <item>라쿤</item>
-
-        <item>어류</item>
     </string-array>
 
     <string-array name="pBreed">
-        <item>아직몰라..</item>
+
     </string-array>
 
     <string-array name="pGender">
         <item>여아</item>
         <item>남아</item>
+    </string-array>
+
+    <string-array name="pNeutral">
+        <item>중성화 O </item>
+        <item>중성화 X </item>
     </string-array>
 </resources>

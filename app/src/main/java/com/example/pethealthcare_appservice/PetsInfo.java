@@ -6,13 +6,15 @@ public class PetsInfo {
     private String gender;
     private String species;
     private String breed;
+    private String neutral;
 
 
-    public PetsInfo(String pName, String gender, String species, String breed) {
+    public PetsInfo(String pName, String species, String breed, String gender, String neutral) {
         this.pName = pName;
-        this.gender = gender;
         this.species = species;
         this.breed = breed;
+        this.gender = gender;
+        this.neutral = neutral;
     }
 
     public String getPName() {
@@ -32,7 +34,7 @@ public class PetsInfo {
     }
 
     public String getSpecies() {
-        return this.species ;
+        return this.species;
     }
 
     public void setAddress(String species) {
@@ -40,12 +42,18 @@ public class PetsInfo {
     }
 
     public String getBreed() {
-        return this.breed ;
+        return this.breed;
     }
 
     public void setBreed(String breed) {
         this.breed = breed;
     }
 
+    public String getNeutral() {
+        return this.neutral;
+    }
 
+    public void setNeutral(String neutral) {
+        this.neutral = neutral;
+    }
 }
