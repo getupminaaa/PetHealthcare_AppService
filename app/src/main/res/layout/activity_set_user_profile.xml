@@ -27,6 +27,7 @@
             android:hint="이름"
             android:inputType="textPersonName" />
 
+
         <EditText
             android:id="@+id/sUPhoneNum"
             android:layout_width="match_parent"

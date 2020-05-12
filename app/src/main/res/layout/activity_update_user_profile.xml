@@ -56,12 +56,7 @@
             android:layout_height="36dp"
             android:textSize="18sp" />
 
-<!--        <Button-->
-<!--            android:id="@+id/emailVerificationButton"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="0"-->
-<!--            android:text="이메일 인증하기" />-->
+
 
     </LinearLayout>
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.pethealthcare_appservice;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,7 +28,16 @@ public class RegiPetActivity extends AppCompatActivity {
     Spinner spinner_gender;
     Spinner spinner_neutral;
 
+    String pName;
+    String species;
+    String breed;
+    String gender;
+    String neutral;
+    PetsInfo petsInfo;
+
+
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    FirebaseFirestore pdb = FirebaseFirestore.getInstance();
 
     final Context context = this;
 
@@ -111,16 +121,16 @@ public class RegiPetActivity extends AppCompatActivity {
     };
 
     private void RegiPet() {
-        String pName = ((EditText) findViewById(R.id.pName)).getText().toString();
-        String species = spinner_species.getSelectedItem().toString();
-        String breed = spinner_breed.getSelectedItem().toString();
-        String gender = spinner_gender.getSelectedItem().toString();
-        String neutral = spinner_neutral.getSelectedItem().toString();
+
+        pName = ((EditText) findViewById(R.id.pName)).getText().toString();
+        species = spinner_species.getSelectedItem().toString();
+        breed = spinner_breed.getSelectedItem().toString();
+        gender = spinner_gender.getSelectedItem().toString();
+        neutral = spinner_neutral.getSelectedItem().toString();
 
         if (pName.length() > 0 && species != null && breed != null && gender != null && neutral != null) {
-            FirebaseFirestore pdb = FirebaseFirestore.getInstance();
 
-            PetsInfo petsInfo = new PetsInfo(pName, species, breed, gender, neutral);
+            petsInfo = new PetsInfo(pName, species, breed, gender, neutral);
 
             if (user != null) {
                 pdb.collection("pets").document(user.getUid()).set(petsInfo)
@@ -129,8 +139,7 @@ public class RegiPetActivity extends AppCompatActivity {
 
                             public void onSuccess(Void aVoid) {
                                 startToast("반려동물등록 성공");
-
-                                finish();
+                                startMyActivity(MainActivity.class);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -144,17 +153,13 @@ public class RegiPetActivity extends AppCompatActivity {
         } else {
             startToast("내용을 채워주세요!");
         }
-
-
+    }
+    private void startMyActivity(Class activity) {
+        Intent intent = new Intent(this, activity);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
-
-    //    private void startMyActivity(Class activity) {
-//        Intent intent = new Intent(this, activity);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        startActivity(intent);
-//    }
-//
     private void startToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
