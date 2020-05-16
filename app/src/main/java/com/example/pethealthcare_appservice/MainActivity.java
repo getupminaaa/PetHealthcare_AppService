@@ -6,6 +6,10 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pethealthcare_appservice.notification.PetCareNotificationActivity;
+import com.example.pethealthcare_appservice.pet.RegiPetActivity;
+import com.example.pethealthcare_appservice.sign.loginActivity;
+import com.example.pethealthcare_appservice.user.updateProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.example.pethealthcare_appservice;
+package com.example.pethealthcare_appservice.user;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pethealthcare_appservice.R;
+import com.example.pethealthcare_appservice.sign.SignUpActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

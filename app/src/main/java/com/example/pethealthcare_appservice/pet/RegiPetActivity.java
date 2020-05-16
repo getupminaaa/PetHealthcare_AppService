@@ -1,4 +1,4 @@
-package com.example.pethealthcare_appservice;
+package com.example.pethealthcare_appservice.pet;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pethealthcare_appservice.MainActivity;
+import com.example.pethealthcare_appservice.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;

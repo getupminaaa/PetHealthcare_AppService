@@ -1,4 +1,4 @@
-package com.example.pethealthcare_appservice;
+package com.example.pethealthcare_appservice.user;
 
 public class UsersInfo {
 

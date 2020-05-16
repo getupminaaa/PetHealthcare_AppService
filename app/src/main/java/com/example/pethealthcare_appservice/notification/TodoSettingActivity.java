@@ -1,10 +1,12 @@
-package com.example.pethealthcare_appservice;
+package com.example.pethealthcare_appservice.notification;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.pethealthcare_appservice.R;
 
 public class TodoSettingActivity extends AppCompatActivity {
     @Override

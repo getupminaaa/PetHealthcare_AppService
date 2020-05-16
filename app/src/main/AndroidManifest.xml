@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".loginActivity">
+        <activity android:name=".sign.loginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,14 +27,14 @@
                     android:scheme="http" />
             </intent-filter>
         </activity>
-        <activity android:name=".passwordResetActivity"></activity>
-        <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".SetProfileActivity"></activity>
+        <activity android:name=".sign.passwordResetActivity"></activity>
+        <activity android:name=".sign.SignUpActivity"></activity>
+        <activity android:name=".user.SetProfileActivity"></activity>
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".RegiPetActivity"></activity>
-        <activity android:name=".updateProfileActivity"></activity>
-        <activity android:name=".PetCareNotificationActivity"></activity>
-        <activity android:name=".TodoSettingActivity"></activity>
+        <activity android:name=".pet.RegiPetActivity"></activity>
+        <activity android:name=".user.updateProfileActivity"></activity>
+        <activity android:name=".notification.PetCareNotificationActivity"></activity>
+        <activity android:name=".notification.TodoSettingActivity"></activity>
     </application>
 
 </manifest>
