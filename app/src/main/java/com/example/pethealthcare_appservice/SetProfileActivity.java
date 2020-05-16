@@ -56,7 +56,6 @@ public class SetProfileActivity extends AppCompatActivity {
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
             UsersInfo usersInfo = new UsersInfo(name, phoneNumber, address);
-
             if (user != null) {
 
                 db.collection("users").document(user.getUid()).set(usersInfo)

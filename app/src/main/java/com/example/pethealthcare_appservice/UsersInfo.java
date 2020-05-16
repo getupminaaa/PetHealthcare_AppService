@@ -12,6 +12,7 @@ public class UsersInfo {
         this.address = address;
     }
 
+
     public String getName() {
         return this.name;
     }
@@ -35,6 +36,5 @@ public class UsersInfo {
     public void setAddress(String address) {
         this.address = address;
     }
-
-
 }
+

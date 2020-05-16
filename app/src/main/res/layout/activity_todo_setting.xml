@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tTodo_setting"
+        android:layout_width="410dp"
+        android:layout_height="65dp"
+        android:gravity="center"
+        android:text="할 일 추가하는 페이지"
+        android:textSize="36sp" />
+
+    <TimePicker
+        android:id="@+id/setTimePicker"
+        android:layout_width="match_parent"
+        android:layout_height="191dp"
+        android:timePickerMode="spinner" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="12dp" />
+
+    <EditText
+        android:id="@+id/todoName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="이름 적어라 얼른"
+        android:inputType="textPersonName"
+        />
+
+    <EditText
+        android:id="@+id/wirteDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="자세하지만 간단한 설명 적어라"
+        android:inputType="textPersonName" />
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="22dp" />
+
+    <TextView
+        android:id="@+id/tNotiCycle"
+        android:layout_width="match_parent"
+        android:layout_height="31dp"
+        android:gravity="center"
+        android:text="반복 주기 설정"
+        android:textSize="24sp" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="22dp" />
+
+    <TextView
+        android:id="@+id/tWeek"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:text="     월       화      수       목      금        토      일 "
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="26dp"
+            android:layout_height="50dp"
+            android:layout_weight="0" />
+
+        <CheckBox
+            android:id="@+id/check_mon"
+            style="@android:style/Widget.CompoundButton.CheckBox"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="26dp"
+            android:layout_height="50dp"
+            android:layout_weight="0" />
+
+        <CheckBox
+            android:id="@+id/check_tue"
+            style="@android:style/Widget.CompoundButton.CheckBox"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="26dp"
+            android:layout_height="50dp"
+            android:layout_weight="0" />
+
+        <CheckBox
+            android:id="@+id/check_wed"
+            style="@android:style/Widget.CompoundButton.CheckBox"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0" />
+
+        <Space
+            android:layout_width="26dp"
+            android:layout_height="50dp"
+            android:layout_weight="0" />
+
+        <CheckBox
+            android:id="@+id/check_thr"
+            style="@android:style/Widget.CompoundButton.CheckBox"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0" />
+
+        <Space
+            android:layout_width="26dp"
+            android:layout_height="50dp"
+            android:layout_weight="0" />
+
+        <CheckBox
+            android:id="@+id/check_fri"
+            style="@android:style/Widget.CompoundButton.CheckBox"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0" />
+
+        <Space
+            android:layout_width="26dp"
+            android:layout_height="50dp"
+            android:layout_weight="0" />
+
+        <CheckBox
+            android:id="@+id/check_sat"
+            style="@android:style/Widget.CompoundButton.CheckBox"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0" />
+
+        <Space
+            android:layout_width="26dp"
+            android:layout_height="50dp"
+            android:layout_weight="0" />
+
+        <CheckBox
+            android:id="@+id/check_sun"
+            style="@android:style/Widget.CompoundButton.CheckBox"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0" />
+
+        <Space
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:layout_weight="0" />
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:layout_weight="0" />
+
+    <TextView
+        android:id="@+id/repeatNotiCycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="다시 알림"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="84dp"
+            android:layout_height="50dp"
+            android:layout_weight="0" />
+
+        <Switch
+            android:id="@+id/repeatOnOff"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:gravity="center" />
+
+        <Space
+            android:layout_width="22dp"
+            android:layout_height="50dp"
+            android:layout_weight="0" />
+
+        <Spinner
+            android:id="@+id/afterMinutes"
+            android:layout_width="176dp"
+            android:layout_height="50dp"
+            android:layout_weight="0"
+            android:entries="@array/afterMinutes"/>
+
+        <Space
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_weight="0" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="29dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="159dp"
+            android:layout_height="50dp" />
+
+        <Button
+            android:id="@+id/finish_setting"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="저장" />
+
+        <Space
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</LinearLayout>

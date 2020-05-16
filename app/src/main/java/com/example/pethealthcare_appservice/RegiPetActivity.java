@@ -37,7 +37,7 @@ public class RegiPetActivity extends AppCompatActivity {
 
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    FirebaseFirestore pdb = FirebaseFirestore.getInstance();
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     final Context context = this;
 
@@ -133,7 +133,7 @@ public class RegiPetActivity extends AppCompatActivity {
             petsInfo = new PetsInfo(pName, species, breed, gender, neutral);
 
             if (user != null) {
-                pdb.collection("pets").document(user.getUid()).set(petsInfo)
+                db.collection("users").document(user.getUid()).collection("pets").document(pName).set(petsInfo)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
 

@@ -33,6 +33,8 @@
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".RegiPetActivity"></activity>
         <activity android:name=".updateProfileActivity"></activity>
+        <activity android:name=".PetCareNotificationActivity"></activity>
+        <activity android:name=".TodoSettingActivity"></activity>
     </application>
 
 </manifest>
