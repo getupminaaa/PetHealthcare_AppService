@@ -62,7 +62,7 @@ public class Pet_MainActivity extends AppCompatActivity {
                         petName.add(text);
                         pPName.setText("");
                         adapter.notifyDataSetChanged();
-                        startMyActivity(AddPetActivity.class);
+                        startMyActivity(Add_PetActivity.class);
                     } else {
                         startToast("내용을 입력해주세요!");
                     }
@@ -83,7 +83,7 @@ public class Pet_MainActivity extends AppCompatActivity {
                 case R.id.modify_pet:
                     pos = petName_listView.getCheckedItemPosition();
                     if (pos != ListView.INVALID_POSITION) {
-                        startMyActivity(AddPetActivity.class);
+                        startMyActivity(Add_PetActivity.class);
                     } else {
                         startToast("선택해주세요!");
                     }
