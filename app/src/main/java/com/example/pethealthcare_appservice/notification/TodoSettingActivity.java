@@ -14,7 +14,7 @@ public class TodoSettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo_setting);
 
-        findViewById(R.id.finish_setting).setOnClickListener(onClickListener);
+        findViewById(R.id.finish_todoSetting).setOnClickListener(onClickListener);
 
     }
 
@@ -22,7 +22,7 @@ public class TodoSettingActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.finish_setting:
+                case R.id.finish_todoSetting:
                     startMyActivity(PetCareNotificationActivity.class);
                     finish();
                     break;

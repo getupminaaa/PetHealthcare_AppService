@@ -14,7 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.pethealthcare_appservice.MainActivity;
 import com.example.pethealthcare_appservice.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -22,13 +21,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class RegiPetActivity extends AppCompatActivity {
+public class AddPetActivity extends AppCompatActivity {
 
-    private static final String TAG = "RegiPetActivity";
+    private static final String TAG = "AddPetActivity";
     Spinner spinner_species;
     Spinner spinner_breed;
     Spinner spinner_gender;
     Spinner spinner_neutral;
+
 
     String pName;
     String species;
@@ -46,8 +46,8 @@ public class RegiPetActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_regi_pet);
-        findViewById(R.id.pRegiButton).setOnClickListener(onClickListener);
+        setContentView(R.layout.activity_add_pet);
+        findViewById(R.id.finishAddButton).setOnClickListener(onClickListener);
 
         spinner_species = (Spinner) findViewById(R.id.pSpecies);
         spinner_breed = (Spinner) findViewById(R.id.pBreed);
@@ -102,7 +102,7 @@ public class RegiPetActivity extends AppCompatActivity {
                         spinner_breed.setAdapter(adapter4);
                         break;
                 }
-            }
+            }    //동적 스피너 구현하고 값 받기
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -115,14 +115,14 @@ public class RegiPetActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.pRegiButton:
-                    RegiPet();
+                case R.id.finishAddButton:
+                    AddPet();
                     break;
             }
         }
     };
 
-    private void RegiPet() {
+    private void AddPet() {
 
         pName = ((EditText) findViewById(R.id.pName)).getText().toString();
         species = spinner_species.getSelectedItem().toString();
@@ -141,7 +141,6 @@ public class RegiPetActivity extends AppCompatActivity {
 
                             public void onSuccess(Void aVoid) {
                                 startToast("반려동물등록 성공");
-                                startMyActivity(MainActivity.class);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -151,15 +150,16 @@ public class RegiPetActivity extends AppCompatActivity {
                                 Log.w(TAG, "등록실패", e);
                             }
                         });
-            }
+            }//반려동물 정보 디비 저장
         } else {
             startToast("내용을 채워주세요!");
         }
     }
+
     private void startMyActivity(Class activity) {
         Intent intent = new Intent(this, activity);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+
     }
 
     private void startToast(String msg) {

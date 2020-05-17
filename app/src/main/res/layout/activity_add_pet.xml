@@ -165,7 +165,7 @@
         app:layout_constraintTop_toBottomOf="@+id/space8" />
 
     <Button
-        android:id="@+id/pRegiButton"
+        android:id="@+id/finishAddButton"
         android:layout_width="410dp"
         android:layout_height="50dp"
         android:text="등록 완료"

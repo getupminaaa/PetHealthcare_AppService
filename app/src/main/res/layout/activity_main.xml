@@ -22,17 +22,13 @@
             android:text="회원 정보" />
 
         <Button
-            android:id="@+id/gotoPetRegiButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="반려동물 등록" />
-        <Button
-            android:id="@+id/gotoUPetRegiButton"
+            android:id="@+id/gotoPetListButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="반려동물 정보" />
+
         <Button
-            android:id="@+id/gotoFunction_1"
+            android:id="@+id/gotoNotification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="기능1" />

@@ -29,12 +29,19 @@
         </activity>
         <activity android:name=".sign.passwordResetActivity"></activity>
         <activity android:name=".sign.SignUpActivity"></activity>
+
         <activity android:name=".user.SetProfileActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".pet.RegiPetActivity"></activity>
         <activity android:name=".user.updateProfileActivity"></activity>
+
+        <activity android:name=".MainActivity"></activity>
+
+        <activity android:name=".pet.Pet_MainActivity"></activity>
+        <activity android:name=".pet.AddPetActivity"></activity>
+
+
         <activity android:name=".notification.PetCareNotificationActivity"></activity>
         <activity android:name=".notification.TodoSettingActivity"></activity>
+
     </application>
 
 </manifest>

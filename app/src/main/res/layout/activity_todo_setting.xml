@@ -33,7 +33,7 @@
         />
 
     <EditText
-        android:id="@+id/wirteDetail"
+        android:id="@+id/todoDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -162,7 +162,7 @@
         android:layout_weight="0" />
 
     <TextView
-        android:id="@+id/repeatNotiCycle"
+        android:id="@+id/tRepeatNotiCycle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -191,7 +191,7 @@
             android:layout_weight="0" />
 
         <Spinner
-            android:id="@+id/afterMinutes"
+            android:id="@+id/reNoti"
             android:layout_width="176dp"
             android:layout_height="50dp"
             android:layout_weight="0"
@@ -218,7 +218,7 @@
             android:layout_height="50dp" />
 
         <Button
-            android:id="@+id/finish_setting"
+            android:id="@+id/finish_todoSetting"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:text="저장" />
