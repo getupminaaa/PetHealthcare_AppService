@@ -39,8 +39,8 @@
         <activity android:name=".pet.AddPetActivity"></activity>
 
 
-        <activity android:name=".notification.PetCareNotificationActivity"></activity>
-        <activity android:name=".notification.TodoSettingActivity"></activity>
+        <activity android:name=".todoList.TodoList_MainActivity"></activity>
+        <activity android:name=".todoList.Add_TodoActivity"></activity>
 
     </application>
 

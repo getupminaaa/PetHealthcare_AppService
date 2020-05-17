@@ -6,7 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.pethealthcare_appservice.notification.PetCareNotificationActivity;
+import com.example.pethealthcare_appservice.todoList.TodoList_MainActivity;
 import com.example.pethealthcare_appservice.pet.Pet_MainActivity;
 import com.example.pethealthcare_appservice.sign.loginActivity;
 import com.example.pethealthcare_appservice.user.updateProfileActivity;
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
                     break;
                 case R.id.gotoNotification:
-                    startMyActivity(PetCareNotificationActivity.class);
+                    startMyActivity(TodoList_MainActivity.class);
             }
         }
     };

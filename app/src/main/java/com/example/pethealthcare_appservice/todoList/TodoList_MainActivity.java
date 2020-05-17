@@ -1,4 +1,4 @@
-package com.example.pethealthcare_appservice.notification;
+package com.example.pethealthcare_appservice.todoList;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,13 +8,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pethealthcare_appservice.R;
 
-public class TodoSettingActivity extends AppCompatActivity {
+public class TodoList_MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_todo_setting);
+        setContentView(R.layout.activity_petcare_todo);
 
-        findViewById(R.id.finish_todoSetting).setOnClickListener(onClickListener);
+        findViewById(R.id.add_todo).setOnClickListener(onClickListener);
 
     }
 
@@ -22,9 +22,8 @@ public class TodoSettingActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.finish_todoSetting:
-                    startMyActivity(PetCareNotificationActivity.class);
-                    finish();
+                case R.id.add_todo:
+                    startMyActivity(Add_TodoActivity.class);
                     break;
             }
         }
@@ -32,7 +31,6 @@ public class TodoSettingActivity extends AppCompatActivity {
 
     private void startMyActivity(Class activity) {
         Intent intent = new Intent(this, activity);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 }
