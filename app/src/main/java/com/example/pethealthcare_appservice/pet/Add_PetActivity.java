@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class AddPetActivity extends AppCompatActivity {
+public class Add_PetActivity extends AppCompatActivity {
 
     private static final String TAG = "AddPetActivity";
     Spinner spinner_species;

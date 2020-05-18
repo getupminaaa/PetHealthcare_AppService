@@ -36,7 +36,7 @@
         <activity android:name=".MainActivity"></activity>
 
         <activity android:name=".pet.Pet_MainActivity"></activity>
-        <activity android:name=".pet.AddPetActivity"></activity>
+        <activity android:name=".pet.Add_PetActivity"></activity>
 
 
         <activity android:name=".todoList.TodoList_MainActivity"></activity>
