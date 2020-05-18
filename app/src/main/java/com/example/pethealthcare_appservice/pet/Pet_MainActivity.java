@@ -2,15 +2,20 @@ package com.example.pethealthcare_appservice.pet;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pethealthcare_appservice.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -22,7 +27,7 @@ import java.util.ArrayList;
 // 반려동물 리스트를 추가, 삭제, 수정할 수 있는 액티비티
 
 public class Pet_MainActivity extends AppCompatActivity {
-
+    private static final String TAG = "Pet_MainActivity";
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -31,6 +36,8 @@ public class Pet_MainActivity extends AppCompatActivity {
     ListView petName_listView;
     EditText pPName;
     int pos;
+    String text;
+    String str;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,16 +55,21 @@ public class Pet_MainActivity extends AppCompatActivity {
         petName_listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         pPName = (EditText) findViewById(R.id.pPName);
 
-
+        petName_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                pos = petName_listView.getCheckedItemPosition();
+                str = (String) adapterView.getAdapter().getItem(position);
+            } //position 값 받아오기
+        });
     }
-
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.add_pet:
-                    String text = pPName.getText().toString();
+                    text = pPName.getText().toString();
                     if (text.length() > 0) {
                         petName.add(text);
                         pPName.setText("");
@@ -67,47 +79,34 @@ public class Pet_MainActivity extends AppCompatActivity {
                         startToast("내용을 입력해주세요!");
                     }
                     break;
-
                 case R.id.remove_pet:
-                    pos = petName_listView.getCheckedItemPosition();
                     if (pos != ListView.INVALID_POSITION) {
-                        petName.remove(pos);
+                        petName.remove(str);
+                        remove_petDocument();
                         petName_listView.clearChoices();
                         adapter.notifyDataSetChanged();
-
-<<<<<<< Updated upstream
-                case R.id.modify_pet:
-                    pos = petName_listView.getCheckedItemPosition();
-                    if (pos != ListView.INVALID_POSITION) {
-                        startMyActivity(Add_PetActivity.class);
-=======
->>>>>>> Stashed changes
-                    } else {
-                        startToast("선택해주세요!");
                     }
-                    break;
-
-
             }
         }
     };
 
-//    private void remove_petDocument() {
-//        db.collection("user").document("DC")
-//                .delete()
-//                .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void aVoid) {
-//                        Log.d(TAG, "DocumentSnapshot successfully deleted!");
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Log.w(TAG, "Error deleting document", e);
-//                    }
-//                });
-//    }
+    private void remove_petDocument() {
+        db.collection("users").document(user.getUid()).collection("pets").document(str)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, str);
+                        startToast("성공");
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                startToast("실패");
+            }
+        });
+    }
+
 
     private void startMyActivity(Class activity) {
         Intent intent = new Intent(this, activity);
