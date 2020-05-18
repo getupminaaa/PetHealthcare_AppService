@@ -39,7 +39,7 @@ public class Pet_MainActivity extends AppCompatActivity {
 
         findViewById(R.id.add_pet).setOnClickListener(onClickListener);
         findViewById(R.id.remove_pet).setOnClickListener(onClickListener);
-    findViewById(R.id.modify_pet).setOnClickListener(onClickListener);
+
         petName = new ArrayList<String>();
 
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice, petName);
@@ -74,25 +74,40 @@ public class Pet_MainActivity extends AppCompatActivity {
                         petName.remove(pos);
                         petName_listView.clearChoices();
                         adapter.notifyDataSetChanged();
-//                        remove_petDocument();
-                    } else {
-                        startToast("선택해주세요!");
-                    }
-                    break;
 
+<<<<<<< Updated upstream
                 case R.id.modify_pet:
                     pos = petName_listView.getCheckedItemPosition();
                     if (pos != ListView.INVALID_POSITION) {
                         startMyActivity(Add_PetActivity.class);
+=======
+>>>>>>> Stashed changes
                     } else {
                         startToast("선택해주세요!");
                     }
                     break;
+
+
             }
         }
     };
 
-
+//    private void remove_petDocument() {
+//        db.collection("user").document("DC")
+//                .delete()
+//                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void aVoid) {
+//                        Log.d(TAG, "DocumentSnapshot successfully deleted!");
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Log.w(TAG, "Error deleting document", e);
+//                    }
+//                });
+//    }
 
     private void startMyActivity(Class activity) {
         Intent intent = new Intent(this, activity);
