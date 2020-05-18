@@ -13,8 +13,9 @@ public class Add_TodoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo_setting);
-
         findViewById(R.id.finish_todoSetting).setOnClickListener(onClickListener);
+
+        
 
     }
 
@@ -29,6 +30,11 @@ public class Add_TodoActivity extends AppCompatActivity {
             }
         }
     };
+
+    private void AddTodo(){
+
+    }
+
 
     private void startMyActivity(Class activity) {
         Intent intent = new Intent(this, activity);

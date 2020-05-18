@@ -11,7 +11,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pethealthcare_appservice.R;
-import com.example.pethealthcare_appservice.pet.AddPetActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -23,57 +22,53 @@ public class TodoList_MainActivity extends AppCompatActivity {
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    ArrayList<String> petName;
-    ArrayAdapter<String> adapter;
-    ListView petName_listView;
-    EditText pPName;
+    ArrayList<String> todoName;
+    ArrayAdapter<String> adapter_todo;
+    ListView todoName_listView;
+    EditText pTodo;
     int pos;
+    String text;
+    String str;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo_main);
 
-        findViewById(R.id.add_pet).setOnClickListener(onClickListener);
-        findViewById(R.id.remove_pet).setOnClickListener(onClickListener);
+        findViewById(R.id.add_todo).setOnClickListener(onClickListener);
+        findViewById(R.id.remove_todo).setOnClickListener(onClickListener);
 
-        petName = new ArrayList<String>();
-
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice, petName);
-        petName_listView = (ListView) findViewById(R.id.petList);
-        petName_listView.setAdapter(adapter);
-        petName_listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        pPName = (EditText) findViewById(R.id.pPName);
-
+        todoName = new ArrayList<String>();
+        adapter_todo = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice,todoName);
+        todoName_listView = (ListView) findViewById(R.id.todoList);
+        todoName_listView.setAdapter(adapter_todo);
+        todoName_listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        pTodo =(EditText)findViewById(R.id.pTodo);
 
     }
-
+//여기서 얻은 에딧텍스트 값을 애드 투둠로 넘겨
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.add_pet:
-                    String text = pPName.getText().toString();
-                    if (text.length() > 0) {
-                        petName.add(text);
-                        pPName.setText("");
-                        adapter.notifyDataSetChanged();
-                        startMyActivity(AddPetActivity.class);
-                    } else {
-                        startToast("내용을 입력해주세요!");
+                case R.id.add_todo:
+                  text = pTodo.getText().toString();
+                    if(text.length()>0){
+                        todoName.add(text);
+                        pTodo.setText("");
+                        adapter_todo.notifyDataSetChanged();
+                        startMyActivity(Add_TodoActivity.class);
+                    }else{
+                        startToast("내용을 입력해주세여!");
                     }
                     break;
-
-                case R.id.remove_pet:
-                    pos = petName_listView.getCheckedItemPosition();
-                    if (pos != ListView.INVALID_POSITION) {
-                        petName.remove(pos);
-                        petName_listView.clearChoices();
-                        adapter.notifyDataSetChanged();
-//                        remove_petDocument();
-                    } else {
-                        startToast("선택해주세요!");
+                case R.id.remove_todo:
+                    if(pos!= ListView.INVALID_POSITION){
+                        todoName.remove(str);
+                        //db삭제 내용
+                        todoName_listView.clearChoices();
+                        adapter_todo.notifyDataSetChanged();
                     }
                     break;
             }
