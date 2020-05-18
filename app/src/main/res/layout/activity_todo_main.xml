@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tPetInfo"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:gravity="center"
+        android:text="기능 1"
+        android:textSize="36sp" />
+
+    <ListView
+        android:id = "@+id/todoList"
+        android:layout_width="match_parent"
+        android:layout_height="570dp" />
+
+    <EditText
+        android:id="@+id/pTodo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="항 일 입력 ㄱ"
+        android:inputType="textPersonName" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+        <Space
+            android:layout_width="81dp"
+            android:layout_height="50dp" />
+
+        <Button
+            android:id="@+id/add_todo"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text=" 할 일 등록" />
+
+        <Space
+            android:layout_width="55dp"
+            android:layout_height="50dp"
+            android:layout_weight="0" />
+
+        <Button
+            android:id="@+id/remove_todo"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="할 일 삭제" />
+    </LinearLayout>
+
+</LinearLayout>
