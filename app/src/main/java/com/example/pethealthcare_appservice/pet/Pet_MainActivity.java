@@ -86,6 +86,7 @@ public class Pet_MainActivity extends AppCompatActivity {
                         petName_listView.clearChoices();
                         adapter.notifyDataSetChanged();
                     }
+                    break;
             }
         }
     };
