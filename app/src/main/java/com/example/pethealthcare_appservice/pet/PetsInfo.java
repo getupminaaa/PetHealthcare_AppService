@@ -9,6 +9,17 @@ public class PetsInfo {
     private String neutral;
 
 
+    @Override
+    public String toString() {
+        return "PetsInfo{" +
+                "pName='" + pName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", species='" + species + '\'' +
+                ", breed='" + breed + '\'' +
+                ", neutral='" + neutral + '\'' +
+                '}';
+    }
+
     public PetsInfo(String pName, String species, String breed, String gender, String neutral) {
         this.pName = pName;
         this.species = species;

@@ -24,6 +24,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class Add_PetActivity extends AppCompatActivity {
 
     private static final String TAG = "AddPetActivity";
+
     Spinner spinner_species;
     Spinner spinner_breed;
     Spinner spinner_gender;
@@ -116,13 +117,13 @@ public class Add_PetActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.finishAddButton:
-                    AddPet();
+                    addPet();
                     break;
             }
         }
     };
 
-    private void AddPet() {
+    private void addPet() {
 
         pName = ((EditText) findViewById(R.id.pName)).getText().toString();
         species = spinner_species.getSelectedItem().toString();

@@ -22,16 +22,12 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="12dp" />
-
-    <EditText
-        android:id="@+id/todoName"
+    <TextView
+        android:id="@+id/tTodo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="이름 적어라 얼른"
-        android:inputType="textPersonName"
-        />
-
+        android:layout_height="31dp"
+        android:gravity="left"
+        android:textSize="24sp" />
     <EditText
         android:id="@+id/todoDetail"
         android:layout_width="match_parent"
