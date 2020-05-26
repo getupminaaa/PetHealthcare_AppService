@@ -85,7 +85,7 @@ public class TodoList_MainActivity extends AppCompatActivity {
         }
     };
 
-    // 여기서ㅏ 에딧텍스트 값ㄱ을 ㅁ옆의 텍뷰로 셋텏스트 할꺼임
+    // 여기서ㅏ 에딧텍스트 값ㄱ을 ㅁ옆의 텍뷰로 셋텏스트 할꺼임 DONE
 
 
     private void startMyActivity(Class activity, String str) {
