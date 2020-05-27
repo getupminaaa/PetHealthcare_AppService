@@ -72,9 +72,10 @@ public class Pet_MainActivity extends AppCompatActivity {
                     text = pPName.getText().toString();
                     if (text.length() > 0) {
                         petName.add(text);
+                        startMyActivity(Pet_AddActivity.class);
                         pPName.setText("");
                         adapter.notifyDataSetChanged();
-                        startMyActivity(Add_PetActivity.class);
+
                     } else {
                         startToast("내용을 입력해주세요!");
                     }
@@ -111,6 +112,7 @@ public class Pet_MainActivity extends AppCompatActivity {
 
     private void startMyActivity(Class activity) {
         Intent intent = new Intent(this, activity);
+        intent.putExtra("pNameValues",text);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
