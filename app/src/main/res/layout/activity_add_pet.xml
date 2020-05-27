@@ -33,17 +33,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tRegiPet" />
 
-    <EditText
-        android:id="@+id/pName"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/space2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tPname"
-        app:layout_constraintTop_toBottomOf="@+id/tRegiPet" />
-
     <Space
         android:id="@+id/space2"
         android:layout_width="80dp"
@@ -110,7 +99,7 @@
         android:layout_width="410dp"
         android:layout_height="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pName" />
+        app:layout_constraintTop_toBottomOf="@+id/viewPName" />
 
     <Space
         android:id="@+id/space7"
@@ -190,5 +179,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pRegiButton"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/viewPName"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/space2"
+        app:layout_constraintStart_toEndOf="@+id/tPname"
+        app:layout_constraintTop_toBottomOf="@+id/tRegiPet" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

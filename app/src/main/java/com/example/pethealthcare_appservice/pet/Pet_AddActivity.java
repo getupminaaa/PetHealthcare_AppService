@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,7 +28,7 @@ public class Pet_AddActivity extends AppCompatActivity {
     Spinner spinner_breed;
     Spinner spinner_gender;
     Spinner spinner_neutral;
-
+    TextView textView_pName;
 
     String pName;
     String species;
@@ -48,6 +49,7 @@ public class Pet_AddActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_pet);
         findViewById(R.id.finishAddButton).setOnClickListener(onClickListener);
 
+        textView_pName = (TextView) findViewById(R.id.viewPName);
         spinner_species = (Spinner) findViewById(R.id.pSpecies);
         spinner_breed = (Spinner) findViewById(R.id.pBreed);
         spinner_gender = (Spinner) findViewById(R.id.pGender);
@@ -125,11 +127,15 @@ public class Pet_AddActivity extends AppCompatActivity {
 
 //        pName = ((TextView) findViewById(R.id.tVPName)).getText().toString();
 
+        Intent intent = getIntent();
+        pName = intent.getStringExtra("pNameValues");
+
+        textView_pName.setText(pName);
+
         species = spinner_species.getSelectedItem().toString();
         breed = spinner_breed.getSelectedItem().toString();
         gender = spinner_gender.getSelectedItem().toString();
         neutral = spinner_neutral.getSelectedItem().toString();
-
 
 
         if (pName.length() > 0 && species != null && breed != null && gender != null && neutral != null) {
@@ -143,6 +149,7 @@ public class Pet_AddActivity extends AppCompatActivity {
 
                             public void onSuccess(Void aVoid) {
                                 startToast("반려동물등록 성공");
+                                startMyActivity(Pet_AddActivity.class);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -161,7 +168,7 @@ public class Pet_AddActivity extends AppCompatActivity {
     private void startMyActivity(Class activity) {
         Intent intent = new Intent(this, activity);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
+        startActivity(intent);
     }
 
     private void startToast(String msg) {
