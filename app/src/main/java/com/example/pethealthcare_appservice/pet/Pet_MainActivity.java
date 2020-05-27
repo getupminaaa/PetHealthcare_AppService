@@ -74,7 +74,7 @@ public class Pet_MainActivity extends AppCompatActivity {
                         petName.add(text);
                         pPName.setText("");
                         adapter.notifyDataSetChanged();
-                        startMyActivity(Add_PetActivity.class);
+                        startMyActivity(Pet_AddActivity.class);
                     } else {
                         startToast("내용을 입력해주세요!");
                     }
