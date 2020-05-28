@@ -183,10 +183,6 @@ public class Add_TodoActivity extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-<<<<<<< HEAD
-                            Log.d("aaaaaaaaaaaaaaaaaaaa", "aaaaaaaaaaaaaaaaaaaaa");
-=======
->>>>>>> develop
                             startToast("할 일 등록 성공");
                         }
                     })
