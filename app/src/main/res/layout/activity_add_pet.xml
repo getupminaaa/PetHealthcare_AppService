@@ -184,6 +184,8 @@
         android:id="@+id/viewPName"
         android:layout_width="250dp"
         android:layout_height="50dp"
+        android:gravity="center"
+        android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/space2"
         app:layout_constraintStart_toEndOf="@+id/tPname"
         app:layout_constraintTop_toBottomOf="@+id/tRegiPet" />
