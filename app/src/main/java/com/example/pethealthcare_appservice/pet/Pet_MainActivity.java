@@ -71,11 +71,10 @@ public class Pet_MainActivity extends AppCompatActivity {
                 case R.id.add_pet:
                     text = pPName.getText().toString();
                     if (text.length() > 0) {
-                        petName.add(text);
                         startMyActivity(Pet_AddActivity.class);
+                        petName.add(text);
                         pPName.setText("");
                         adapter.notifyDataSetChanged();
-
                     } else {
                         startToast("내용을 입력해주세요!");
                     }

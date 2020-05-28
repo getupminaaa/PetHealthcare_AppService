@@ -30,6 +30,7 @@ public class Pet_AddActivity extends AppCompatActivity {
     Spinner spinner_neutral;
     TextView textView_pName;
 
+
     String pName;
     String species;
     String breed;
@@ -55,10 +56,15 @@ public class Pet_AddActivity extends AppCompatActivity {
         spinner_gender = (Spinner) findViewById(R.id.pGender);
         spinner_neutral = (Spinner) findViewById(R.id.pNeutral);
 
+
+        Intent intent = getIntent();
+        pName = intent.getStringExtra("pNameValues");
+
+        textView_pName.setText(pName);
+
         ArrayAdapter adapter_species = ArrayAdapter.createFromResource(context, R.array.pSpecies, android.R.layout.simple_spinner_item);
         spinner_species.setAdapter(adapter_species);
         spinner_species.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
@@ -125,13 +131,7 @@ public class Pet_AddActivity extends AppCompatActivity {
 
     private void AddPet() {
 
-//        pName = ((TextView) findViewById(R.id.tVPName)).getText().toString();
-
-        Intent intent = getIntent();
-        pName = intent.getStringExtra("pNameValues");
-
-        textView_pName.setText(pName);
-
+        pName = ((TextView) findViewById(R.id.viewPName)).getText().toString();
         species = spinner_species.getSelectedItem().toString();
         breed = spinner_breed.getSelectedItem().toString();
         gender = spinner_gender.getSelectedItem().toString();
