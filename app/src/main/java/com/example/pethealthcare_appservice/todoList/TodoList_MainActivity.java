@@ -3,14 +3,21 @@ package com.example.pethealthcare_appservice.todoList;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pethealthcare_appservice.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -18,6 +25,10 @@ public class TodoList_MainActivity extends AppCompatActivity {
 
     // 할 일 목록을 입력하면 값을 intent로 넘겨서 addTodo의 EditText로 넘겨준다.
     //add를 누르면 리스트목록 아이템을 추가한다. 그 다음 add todo로 넘어간다.
+
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 
 
     ArrayList<String> todoName;
@@ -50,9 +61,19 @@ public class TodoList_MainActivity extends AppCompatActivity {
         todoName_listView.setAdapter(adapter_todo);
         todoName_listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
+        todoName_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                pos = todoName_listView.getCheckedItemPosition();
+                str = (String) adapterView.getAdapter().getItem(position);
+            } //position 값 받아오기
+        });
+
+
 
         pTodo = (EditText) findViewById(R.id.pTodo);
         texts = pTodo.getText().toString(); //pTodo의 값이 text에 들어감
+
 
     }
 
@@ -76,7 +97,7 @@ public class TodoList_MainActivity extends AppCompatActivity {
                 case R.id.remove_todo:
                     if (pos != ListView.INVALID_POSITION) {
                         todoName.remove(str);
-                        //db삭제 내용
+                        remove_todoListDocument();
                         todoName_listView.clearChoices();
                         adapter_todo.notifyDataSetChanged();
                     }
@@ -86,6 +107,22 @@ public class TodoList_MainActivity extends AppCompatActivity {
     };
 
     // 여기서ㅏ 에딧텍스트 값ㄱ을 ㅁ옆의 텍뷰로 셋텏스트 할꺼임 DONE
+
+    private void remove_todoListDocument() {
+        db.collection("users").document(user.getUid()).collection("pets").document(jmen).collection("todoLists").document(texts)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        startToast("성공");
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                startToast("실패");
+            }
+        });
+    }
 
 
     private void startMyActivity(Class activity, String str) {
