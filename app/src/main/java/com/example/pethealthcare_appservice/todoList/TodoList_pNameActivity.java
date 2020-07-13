@@ -57,7 +57,6 @@ public class TodoList_pNameActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 //받아와야됨 그 추가를
 

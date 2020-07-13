@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="항 일 입력 ㄱ"
+        android:hint="할 일 입력"
         android:inputType="textPersonName" />
 
     <LinearLayout

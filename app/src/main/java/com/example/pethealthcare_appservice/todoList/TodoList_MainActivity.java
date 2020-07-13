@@ -91,8 +91,8 @@ public class TodoList_MainActivity extends AppCompatActivity {
                         pTodo.setText("");  // edit Text를 다시 정리해주는 친구
                         adapter_todo.notifyDataSetChanged(); //변경을 알려주는 친구
                     } else {
-                        startToast("내용을 입력해주세여!");
-                    }
+                    startToast("할일 입력");
+                }
                     break;
                 case R.id.remove_todo:
                     if (pos != ListView.INVALID_POSITION) {

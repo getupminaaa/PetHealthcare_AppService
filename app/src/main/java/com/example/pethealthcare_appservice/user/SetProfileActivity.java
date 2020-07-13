@@ -79,12 +79,9 @@ public class SetProfileActivity extends AppCompatActivity {
                             }
                         });
             }
-
-
         } else {
             startToast("내용을 입력해주세요!");
         }
-
     }
 
     private void startMyActivity(Class activity) {
